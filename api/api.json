@@ -1,0 +1,88 @@
+{
+  "questions": [
+    {
+      "reference": "ea1aaa3e-0b41-4ffe-bc4a-d8960f57f8a2",
+      "region_id": "1",
+      "widget_type": "response",
+      "data": {
+        "possible_responses": [
+          [
+            "estructuras de datos",
+            "interfaces de usuario interactivas",
+            "clases"
+          ],
+          [
+            "rápida",
+            "pésima",
+            "eficiente"
+          ]
+        ],
+        "response_container": {
+          "pointer": "left"
+        },
+        "stimulus": "<p class=\"text-center\"><img height=\"213\"\nsrc=\"https://lemonade.oneclick.es/api/authorapi/uploads/7e61d942443068eabe0688131f\n813578.png\" width=\"245\"></p>\n\n<h4>1. Elige la palabra que mejor encaje en el\ncontexto de la oración.</h4>\n",
+        "template": "React te ayuda a crear {{response}}&nbsp; de forma sencilla.\nDiseña vistas simples para cada estado en tu aplicación, y React se encargará de\nactualizar y renderizar de manera {{response}} los componentes correctos cuando los\ndatos cambien.",
+        "type": "clozedropdown",
+        "case_sensitive": true,
+        "validation": {
+          "scoring_type": "exactMatch",
+          "valid_response": {
+            "score": 1,
+            "value": [
+              "interfaces de usuario interactivas",
+              "eficiente"
+            ]
+          }
+        }
+      },
+      "metadata": {
+        "name": "Cloze with drop down",
+        "template_reference": "2fbba51b-e35e-441f-83c7-2662e2e81fa6"
+      },
+      "type": "clozedropdown",
+      "tmp_ref": "95a9fbd3-3bbc-442a-8ecb-1e23014583db"
+    },
+    {
+      "reference": "d3a2f6c0-34c5-45af-a289-a891c394d5de",
+      "region_id": "1",
+      "widget_type": "response",
+      "data": {
+        "possible_responses": [
+          [
+            "render()",
+            "drawView()",
+            "createView()"
+          ],
+          [
+            "JSON",
+            "XML",
+            "HTML"
+          ]
+        ],
+        "response_container": {
+          "pointer": "left"
+        },
+        "stimulus": "<h4>2. Elige la palabra que mejor encaje en el contexto de la\noración.</h4>\n",
+        "template": "Los componentes de React implementan un método\nllamado&nbsp;{{response}}&nbsp;que recibe datos de entrada y retorna qué mostrar.\nEste ejemplo utiliza una sintaxis similar a {{response}} llamada JSX. Puedes\nacceder a los datos de entrada que se pasan al componente\nmediante&nbsp;<code>render()</code>&nbsp;a través\nde&nbsp;<code>this.props</code>.",
+        "type": "clozedropdown",
+        "case_sensitive": true,
+        "validation": {
+          "scoring_type": "exactMatch",
+          "valid_response": {
+            "score": 1,
+            "value": [
+              "render()",
+              "XML"
+            ]
+          }
+        }
+      },
+      "metadata": {
+        "name": "Cloze with drop down",
+        "template_reference": "2fbba51b-e35e-441f-83c7-2662e2e81fa6"
+      },
+      "type": "clozedropdown",
+      "tmp_ref": "d171c712-ef60-48ac-91cc-027bcdf6b7c7"
+    }
+  ]
+}

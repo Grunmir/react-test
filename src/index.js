@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-
-import { createStore } from '../node_modules/redux';
-import { Provider } from '../node_modules/react-redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const initialState = {
   questions: 'Misilazo'

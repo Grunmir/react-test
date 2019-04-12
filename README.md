@@ -1,3 +1,29 @@
+# REACT-TEST
+
+Pequeña aplicación donde se muestra un test de evaluación formado por varias preguntas de tipo “Rellena los huecos” en las que el usuario deberá introducir la respuesta y podrá comprobar el resultado final.
+
+## Instalación
+
+* Clonar el proyecto en local:
+
+```
+git clone git@github.com:Grunmir/react-test.git
+```
+
+* Instalar dependencias:
+
+```
+npm install
+```
+
+## Ejecutar la aplicación:
+
+```
+npm start
+```
+
+## Para crear la aplicación se ha usado __Create React App__
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

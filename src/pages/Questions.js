@@ -11,11 +11,13 @@ class Questions extends React.Component {
     return (
       <div>
         {this.state.questions.map(question => {
-          return (
-            <div key={question.reference}>
-              <ClozeDropdown data={question.data} />
-            </div>
-          );
+          if (question.type === 'clozedropdown') {
+            return (
+              <ClozeDropdown data={question.data} key={question.reference} id={question.reference} />
+            );
+          }
+
+          return undefined;
         })}
       </div>
     );

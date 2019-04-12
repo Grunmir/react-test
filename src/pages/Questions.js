@@ -1,19 +1,23 @@
 import React from "react";
-import ClozeDropdown from "../components/ClozeDropdown";
-import API from '../api/api.json';
+import ClozeDropdownQuestion from "../components/ClozeDropdownQuestion";
+import API from "../api/api.json";
 
-import './Questions.css'
+import "./Questions.css";
 
 class Questions extends React.Component {
-  state = {...API};
+  state = { ...API };
 
   render() {
     return (
       <div>
         {this.state.questions.map(question => {
-          if (question.type === 'clozedropdown') {
+          if (question.type === "clozedropdown") {
             return (
-              <ClozeDropdown data={question.data} key={question.reference} id={question.reference} />
+              <ClozeDropdownQuestion
+                data={question.data}
+                reference={question.reference}
+                key={question.reference}
+              />
             );
           }
 

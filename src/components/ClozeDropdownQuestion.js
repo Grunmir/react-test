@@ -1,18 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import PossibleResponse from "./PossibleResponse";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PossibleResponse from './PossibleResponse'
 
 class ClozeDropdown extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     const template = this.formatTemplate(
       props.data.template,
       props.data.possible_responses,
       props.reference
-    );
+    )
 
-    this.state = { template };
+    this.state = { template }
   }
 
   render() {
@@ -21,33 +21,33 @@ class ClozeDropdown extends React.Component {
         <div dangerouslySetInnerHTML={this.createStimulus()} />
         <div dangerouslySetInnerHTML={this.createTemplate()} />
       </div>
-    );
+    )
   }
 
   componentDidMount() {
     this.insertPossibleResponses(
       this.props.data.possible_responses,
       this.props.reference
-    );
+    )
   }
 
   createStimulus() {
-    return { __html: this.props.data.stimulus };
+    return { __html: this.props.data.stimulus }
   }
 
   createTemplate() {
-    return { __html: this.state.template };
+    return { __html: this.state.template }
   }
 
   formatTemplate(template, possibleResponses, reference) {
     for (let index = 0; index < possibleResponses.length; index++) {
       template = template.replace(
-        "{{response}}",
+        '{{response}}',
         `<span id="${reference}-${index}"></span>`
-      );
+      )
     }
 
-    return template;
+    return template
   }
 
   insertPossibleResponses(possibleResponses, reference) {
@@ -55,9 +55,9 @@ class ClozeDropdown extends React.Component {
       ReactDOM.render(
         <PossibleResponse data={element} reference={reference} index={index} />,
         document.querySelector(`#${reference}-${index}`)
-      );
-    });
+      )
+    })
   }
 }
 
-export default ClozeDropdown;
+export default ClozeDropdown

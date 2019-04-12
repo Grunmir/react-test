@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Questions from './pages/Questions'
 
-import './App.css';
+import './App.css'
 
 class App extends Component {
   render() {
@@ -10,8 +10,8 @@ class App extends Component {
         <p>React Test</p>
         <Questions />
       </header>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PossibleResponse from './PossibleResponse'
+import { connect } from 'react-redux';
 
 class ClozeDropdown extends React.Component {
   constructor(props) {
@@ -60,4 +61,10 @@ class ClozeDropdown extends React.Component {
   }
 }
 
-export default ClozeDropdown
+function mapStateToProps(state, props) {
+  return {
+    categories: state.questions
+  }
+}
+
+export default  connect(mapStateToProps)(ClozeDropdown)

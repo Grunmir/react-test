@@ -1,7 +1,8 @@
+import PossibleResponse from './PossibleResponse'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PossibleResponse from './PossibleResponse'
-import { connect } from 'react-redux';
+import store from '../state/store'
+import { Provider } from 'react-redux'
 
 class ClozeDropdown extends React.Component {
   constructor(props) {
@@ -54,17 +55,17 @@ class ClozeDropdown extends React.Component {
   insertPossibleResponses(possibleResponses, reference) {
     possibleResponses.forEach((element, index) => {
       ReactDOM.render(
-        <PossibleResponse data={element} reference={reference} index={index} />,
+        <Provider store={store}>
+          <PossibleResponse
+            data={element}
+            reference={reference}
+            index={index}
+          />
+        </Provider>,
         document.querySelector(`#${reference}-${index}`)
       )
     })
   }
 }
 
-function mapStateToProps(state, props) {
-  return {
-    categories: state.questions
-  }
-}
-
-export default  connect(mapStateToProps)(ClozeDropdown)
+export default ClozeDropdown

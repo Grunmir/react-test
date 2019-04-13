@@ -1,28 +1,10 @@
+import './index.css'
+import * as serviceWorker from './serviceWorker'
+import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux';
+import store from './store/store'
 import { Provider } from 'react-redux';
-
-import App from './App'
-import * as serviceWorker from './serviceWorker'
-import './index.css'
-
-const initialState = {
-  questions: [
-    {
-      reference: '',
-      responses: []
-    }
-  ]
-}
-
-const store = createStore(
-  state => state,
-  initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-
-console.log(store.getState())
 
 ReactDOM.render(
   <Provider store={store}>

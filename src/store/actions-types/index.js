@@ -1,0 +1,3 @@
+export const ADD_QUESTIONS = 'ADD_QUESTIONS';
+
+export const ADD_RESPONSE = 'ADD_RESPONSE';

@@ -1,7 +1,7 @@
-import * as actions from '../state/actions/index'
+import * as actions from '../store/actions/index'
 import React from 'react'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class PossibleResponse extends React.Component {
   constructor(props) {
@@ -13,20 +13,25 @@ class PossibleResponse extends React.Component {
 
   handleChange(event) {
     this.setState({ selected: event.target.value })
-    this.props.actions.addResponse(event.target.value, this.props.reference, this.props.index)
+
+    this.props.actions.addResponse(
+      event.target.value,
+      this.props.reference,
+      this.props.index
+    )
   }
 
   render() {
     return (
       <select value={this.state.selected} onChange={this.handleChange}>
-          <option value="" />
-          {this.props.data.map((response, index) => {
-            return (
-              <option value={response} key={index}>
-                {response}
-              </option>
-            )
-          })}
+        <option value="" />
+        {this.props.data.map((response, index) => {
+          return (
+            <option value={response} key={index}>
+              {response}
+            </option>
+          )
+        })}
       </select>
     )
   }

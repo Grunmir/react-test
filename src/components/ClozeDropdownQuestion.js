@@ -1,7 +1,7 @@
 import PossibleResponse from './PossibleResponse'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import store from '../state/store'
+import store from '../store'
 import { Provider } from 'react-redux'
 
 class ClozeDropdown extends React.Component {

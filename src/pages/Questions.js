@@ -1,16 +1,23 @@
-import React from 'react'
-import ClozeDropdownQuestion from '../components/ClozeDropdownQuestion'
-import API from '../api/api.json'
-
 import './Questions.css'
+import API from '../api/api.json'
+import ClozeDropdownQuestion from '../components/ClozeDropdownQuestion'
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../store/actions'
 
 class Questions extends React.Component {
-  state = { ...API }
+  constructor(props) {
+    super(props)
+
+    props.actions.addQuestions(API.questions)
+  }
 
   render() {
+    console.dir(this.props)
     return (
       <div>
-        {this.state.questions.map(question => {
+        {this.props.questions.map(question => {
           if (question.type === 'clozedropdown') {
             return (
               <ClozeDropdownQuestion
@@ -28,4 +35,16 @@ class Questions extends React.Component {
   }
 }
 
-export default Questions
+function mapStateToProps(state, props) {
+  return {
+    questions: state.questions
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions)

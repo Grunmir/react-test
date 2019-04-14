@@ -1,4 +1,4 @@
-import { ADD_QUESTIONS, ADD_RESPONSE } from '../actions-types/index'
+import { ADD_QUESTIONS, ADD_RESPONSE, CHECK_RESPONSES } from '../actions-types/index'
 
 function data(state, action) {
   switch (action.type) {
@@ -22,6 +22,12 @@ function data(state, action) {
       })
 
       return { ...state }
+    }
+
+    case CHECK_RESPONSES: {
+      state.checkResponses = action.payload.value
+
+      return {...state}
     }
 
     default:

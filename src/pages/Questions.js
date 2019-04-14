@@ -1,10 +1,11 @@
 import './Questions.css'
+import * as actions from '../store/actions'
 import API from '../api/api.json'
-import ClozeDropdownQuestion from '../components/ClozeDropdownQuestion'
+import ResponsesCheck from '../components/ResponsesCheck'
+import Question from '../components/Question'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from '../store/actions'
 
 class Questions extends React.Component {
   constructor(props) {
@@ -14,22 +15,13 @@ class Questions extends React.Component {
   }
 
   render() {
-    console.dir(this.props)
     return (
-      <div>
+      <div className="container">
         {this.props.questions.map(question => {
-          if (question.type === 'clozedropdown') {
-            return (
-              <ClozeDropdownQuestion
-                data={question.data}
-                reference={question.reference}
-                key={question.reference}
-              />
-            )
-          }
-
-          return undefined
+          return <Question question={question} key={question.reference} />
         })}
+
+        <ResponsesCheck />
       </div>
     )
   }

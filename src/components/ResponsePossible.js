@@ -3,11 +3,12 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class PossibleResponse extends React.Component {
+class ResponsePossible extends React.Component {
+  state = { selected: '' }
+
   constructor(props) {
     super(props)
 
-    this.state = { selected: '' }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -22,6 +23,16 @@ class PossibleResponse extends React.Component {
   }
 
   render() {
+    let select = this.htmlSelect()
+
+    if (this.props.checkResponses) {
+      select = this.htmlCheckSelect()
+    }
+
+    return select
+  }
+
+  htmlSelect() {
     return (
       <select value={this.state.selected} onChange={this.handleChange}>
         <option value="" />
@@ -35,10 +46,25 @@ class PossibleResponse extends React.Component {
       </select>
     )
   }
+
+  htmlCheckSelect() {
+    let check = this.props.questions.find(element => {
+      return element.reference === this.props.reference
+    })
+
+    if (check.data.responses && check.data.responses[this.props.index] === check.data.validation.valid_response.value[this.props.index]) {
+      return <span className="badge badge-success">{this.state.selected}</span>
+    }
+
+    return <span className="badge badge-danger">{this.state.selected}</span>
+  }
 }
 
 function mapStateToProps(state, props) {
-  return {}
+  return {
+    questions: state.questions,
+    checkResponses: state.checkResponses
+  }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -47,4 +73,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PossibleResponse)
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsePossible)

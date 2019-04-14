@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <header className="App-header">
-        <p>React Test</p>
+        <h1>React Test</h1>
         <Questions />
       </header>
     )

@@ -1,6 +1,7 @@
-import ResponsePossible from './ResponsePossible'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ResponsePossible from './ResponsePossible'
+import QuestionValidation from './QuestionValidation'
 import store from '../store'
 import { Provider, connect } from 'react-redux'
 
@@ -27,6 +28,7 @@ class QuestionClozeDropdown extends React.Component {
       <div className={this.getClassName()} role="alert">
         <div dangerouslySetInnerHTML={this.createStimulus()} />
         <div dangerouslySetInnerHTML={this.createTemplate()} />
+        <QuestionValidation reference={this.props.reference} />
       </div>
     )
   }
@@ -35,7 +37,7 @@ class QuestionClozeDropdown extends React.Component {
     let responses = this.props.question.responses
     let validation = this.props.question.validation.valid_response.value
 
-    return JSON.stringify(responses) ===  JSON.stringify(validation)
+    return JSON.stringify(responses) === JSON.stringify(validation)
   }
 
   createStimulus() {
@@ -74,7 +76,7 @@ class QuestionClozeDropdown extends React.Component {
       ReactDOM.render(
         <Provider store={store}>
           <ResponsePossible
-            data={element}
+            responses={element}
             reference={reference}
             index={index}
           />

@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class ResponsePossible extends React.Component {
-  state = { selected: '' }
-
   constructor(props) {
     super(props)
 
@@ -13,8 +11,6 @@ class ResponsePossible extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ selected: event.target.value })
-
     this.props.actions.addResponse(
       event.target.value,
       this.props.reference,
@@ -34,9 +30,9 @@ class ResponsePossible extends React.Component {
 
   htmlSelect() {
     return (
-      <select value={this.state.selected} onChange={this.handleChange}>
+      <select value={this.props.selected} onChange={this.handleChange}>
         <option value="" />
-        {this.props.data.map((response, index) => {
+        {this.props.responses.map((response, index) => {
           return (
             <option value={response} key={index}>
               {response}
@@ -48,21 +44,34 @@ class ResponsePossible extends React.Component {
   }
 
   htmlCheckSelect() {
-    let check = this.props.questions.find(element => {
-      return element.reference === this.props.reference
-    })
+    let index = this.props.index
 
-    if (check.data.responses && check.data.responses[this.props.index] === check.data.validation.valid_response.value[this.props.index]) {
-      return <span className="badge badge-success">{this.state.selected}</span>
-    }
+    let className =
+      this.props.question.responses &&
+      this.props.question.responses[index] ===
+        this.props.question.validation.valid_response.value[index]
+        ? 'badge badge-success ml-1'
+        : 'badge badge-danger ml-1'
 
-    return <span className="badge badge-danger">{this.state.selected}</span>
+    return (
+      <span>
+        <span className="badge badge-primary">{index+1}</span>
+        <span className={className}>{this.props.selected}</span>
+      </span>
+    )
   }
 }
 
 function mapStateToProps(state, props) {
+  let question = state.questions.find(element => {
+    return element.reference === props.reference
+  })
+
+  let selected = question.data.responses[props.index]
+
   return {
-    questions: state.questions,
+    selected: selected ? selected : '',
+    question: question.data,
     checkResponses: state.checkResponses
   }
 }

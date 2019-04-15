@@ -2,8 +2,9 @@ import reducer from './reducers'
 import { createStore } from 'redux'
 
 const initialState = {
+  checkResponses: false,
   questions: [],
-  checkResponses: false
+  validQuestions: 0
 }
 
 const store = createStore(

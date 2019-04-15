@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ResponsePossible from './ResponsePossible'
+import ResponsePossibleSelect from './ResponsePossibleSelect'
 import QuestionValidation from './QuestionValidation'
 import store from '../store'
 import { Provider, connect } from 'react-redux'
@@ -75,7 +75,7 @@ class QuestionClozeDropdown extends React.Component {
     possibleResponses.forEach((element, index) => {
       ReactDOM.render(
         <Provider store={store}>
-          <ResponsePossible
+          <ResponsePossibleSelect
             responses={element}
             reference={reference}
             index={index}

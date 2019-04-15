@@ -1,4 +1,3 @@
-import './Questions.css'
 import * as actions from '../store/actions'
 import API from '../api/api.json'
 import ResponsesCheck from '../components/ResponsesCheck'

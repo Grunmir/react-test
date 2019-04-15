@@ -3,7 +3,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class ResponsePossible extends React.Component {
+class ResponsePossibleSelect extends React.Component {
   constructor(props) {
     super(props)
 
@@ -82,4 +82,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResponsePossible)
+export default connect(mapStateToProps, mapDispatchToProps)(ResponsePossibleSelect)

@@ -2,6 +2,8 @@
 
 Pequeña aplicación donde se muestra un test de evaluación formado por varias preguntas de tipo “Rellena los huecos” en las que el usuario deberá introducir la respuesta y podrá comprobar el resultado final.
 
+Aplicación online: [CodeSanbox](https://codesandbox.io/embed/github/Grunmir/react-test/tree/master/)
+
 ## Instalación
 
 * Clonar el proyecto en local:

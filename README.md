@@ -38,3 +38,10 @@ P.D. No es necesario levantar el servidor para que la aplicación funcione.
 ## Para crear la aplicación se ha usado __Create React App__
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Para crear el servidor API-Questions se ha usado __Express__
+
+Express es una infraestructura de aplicaciones web Node.js mínima y flexible que proporciona un conjunto sólido de características para las aplicaciones web y móviles. [__Express__](https://expressjs.com/es/)
+
+Para resolver problemas __CORS__ (Intercambio de recursos de origen cruzado) se ha utilizado la librería [__expressjs/cors__](https://github.com/expressjs/cors#readme)
+

@@ -22,6 +22,18 @@ npm install
 npm start
 ```
 
+## Servidor API-Questions:
+
+La aplicación consume los datos de un servidor montado en Express, para levantar el servidor ejecutar el siguiente comando:
+
+```
+npm run server
+```
+
+Si el servidor __API-Questions__ no esta levantado se producirá una excepción y entonces se cargaran los datos desde disco.
+
+P.D. No es necesario levantar el servidor para que la aplicación funcione.
+
 ## Para crear la aplicación se ha usado __Create React App__
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

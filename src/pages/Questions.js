@@ -1,16 +1,26 @@
 import * as actions from '../store/actions'
 import API from '../api/api.json'
-import ResponsesCheck from '../components/ResponsesCheck'
 import Question from '../components/Question'
 import React from 'react'
+import ResponsesCheck from '../components/ResponsesCheck'
+import axios from 'axios'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class Questions extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
+    axios.get(`http://localhost:3030/questions`)
+      .then(response => {
+        console.info(`Preguntas cargadas desde el servidor...`)
 
-    props.actions.addQuestions(API.questions)
+        this.props.actions.addQuestions(response.data.questions)
+      })
+      .catch(error => {
+        console.error(error)
+        console.info(`Error en el servidor, se procede a cargar la API desde disco:`);
+
+        this.props.actions.addQuestions(API.questions)
+      })
   }
 
   render() {

@@ -33,13 +33,6 @@ class QuestionClozeDropdown extends React.Component {
     )
   }
 
-  checkResponses() {
-    let responses = this.props.question.responses
-    let validation = this.props.question.validation.valid_response.value
-
-    return JSON.stringify(responses) === JSON.stringify(validation)
-  }
-
   createStimulus() {
     return { __html: this.props.question.stimulus }
   }
@@ -63,7 +56,7 @@ class QuestionClozeDropdown extends React.Component {
     let className = 'alert alert-light'
 
     if (this.props.checkResponses) {
-      className = this.checkResponses()
+      className = this.props.is_valid
         ? 'alert alert-success'
         : 'alert alert-danger'
     }
@@ -76,9 +69,9 @@ class QuestionClozeDropdown extends React.Component {
       ReactDOM.render(
         <Provider store={store}>
           <ResponsePossibleSelect
-            responses={element}
-            reference={reference}
             index={index}
+            reference={reference}
+            responses={element}
           />
         </Provider>,
         document.querySelector(`#${reference}-${index}`)
@@ -93,8 +86,9 @@ function mapStateToProps(state, props) {
   })
 
   return {
-    question: question.data,
-    checkResponses: state.checkResponses
+    checkResponses: state.checkResponses,
+    is_valid: question.data.is_valid,
+    question: question.data
   }
 }
 

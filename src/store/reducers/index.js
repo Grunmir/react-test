@@ -1,4 +1,6 @@
-import { ADD_QUESTIONS, ADD_RESPONSE, CHECK_RESPONSES, RESPONSES_RESET, VALID_QUESTION_RESET, VALIDATE_RESPONSES } from '../actions-types/index'
+import {
+  ADD_QUESTIONS, ADD_RESPONSE, CHECK_RESPONSES, RESPONSES_RESET,
+  VALID_QUESTION_RESET, VALIDATE_RESPONSES } from '../actions-types/index'
 
 function data(state, action) {
   switch (action.type) {
@@ -10,13 +12,12 @@ function data(state, action) {
     }
 
     case ADD_RESPONSE: {
-      state.questions.map(element => {
-        if (element.reference === action.payload.reference) {
-          return (element.data.responses[action.payload.index] =
-            action.payload.response)
+      state.questions.map(question => {
+        if (question.reference === action.payload.reference) {
+          question.data.responses[action.payload.index] = action.payload.response
         }
 
-        return element
+        return question
       })
 
       return { ...state }

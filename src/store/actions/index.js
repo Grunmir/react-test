@@ -1,4 +1,6 @@
-import { ADD_QUESTIONS, ADD_RESPONSE, CHECK_RESPONSES, RESPONSES_RESET, VALID_QUESTION_RESET, VALIDATE_RESPONSES } from '../actions-types/index'
+import {
+  ADD_QUESTIONS, ADD_RESPONSE, CHECK_RESPONSES, RESPONSES_RESET,
+  VALID_QUESTION_RESET, VALIDATE_RESPONSES } from '../actions-types/index'
 
 
 export function addQuestions(questions) {

@@ -70,9 +70,9 @@ function mapStateToProps(state, props) {
   let selected = question.data.responses[props.index]
 
   return {
-    selected: selected ? selected : '',
+    checkResponses: state.checkResponses,
     question: question.data,
-    checkResponses: state.checkResponses
+    selected: selected ? selected : ''
   }
 }
 

@@ -24,7 +24,8 @@ npm start
 
 ## Servidor API-Questions:
 
-La aplicación consume los datos de un servidor montado en Express, para levantar el servidor ejecutar el siguiente comando:
+La aplicación consume los datos de dos formas, desde disco o desde un servidor montado en __Express__. 
+Para levantar el servidor hay que ejecutar el siguiente comando:
 
 ```
 npm run server

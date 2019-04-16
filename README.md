@@ -7,7 +7,7 @@ Pequeña aplicación donde se muestra un test de evaluación formado por varias 
 * Clonar el proyecto en local:
 
 ```
-git clone git@github.com:Grunmir/react-test.git
+git clone git@github.com:Grunmir/react-test.git && cd react-test
 ```
 
 * Instalar dependencias:
